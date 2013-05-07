@@ -1,0 +1,24 @@
+M-time [next] doing what ?
+plan 20 min
+随机行数：3
+估算比例为: 1.1111111111
+M-hist预计 18.000000000179998 min完成
+随机预计 25.619335007258872 min 完成
+[真实:21min]
+
+M-time [next] case process 图 in paper
+plan 50 min
+随机行数：14
+估算比例为: 0.47244094489999999
+M-hist预计 105.83333332927639 min完成
+随机预计 64.706689627891549 min 完成
+[真实:30min]
+
+M-time [next] list the classes of the case, and list the funtions 隐藏使用的
+plan 60 min
+随机行数：32
+估算比例为: 10.0
+M-hist预计 6.0 min完成
+随机预计 110.38067494819835 min 完成
+[]
+
