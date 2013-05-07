@@ -55,8 +55,9 @@ class Mtime:
 
 if __name__ == "__main__":
     m1=Mtime()
-    TT=40
-    print "plan %s min" % TT
+    TT=float(raw_input('你的估算时间：'))
+    #TT=40
+    print "plan %d min" % TT
     PP=m1.plantime(TT)
     print "M-hist预计 %r min完成" % PP
     PP2=m1.Bi(TT)
