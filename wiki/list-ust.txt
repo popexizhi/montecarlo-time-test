@@ -22,6 +22,14 @@ M-hist预计 15.749999999685 min完成
 随机预计 27.443937130059155 min 完成
 [真实:77min]
 
+M-time [next] class 结构file
+plan 30 min
+随机行数：48
+估算比例为: 2.0
+M-hist预计 15.0 min完成
+随机预计 27.160739685526067 min 完成
+[真实:60 min]
+
 M-time [next] list the classes of the case, and list the funtions 隐藏使用的
 plan 60 min
 随机行数：32
