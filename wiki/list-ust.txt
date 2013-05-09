@@ -30,6 +30,23 @@ M-hist预计 15.0 min完成
 随机预计 27.160739685526067 min 完成
 [真实:60 min]
 
+M-time [next] list TDD function 顺序
+plan 30 min
+随机行数：39
+估算比例为: 1.875
+M-hist预计 16.0 min完成
+随机预计 111.23642677159683 min 完成
+[真实:3 min]
+
+M-time [next] TDD 2 
+plan 20 min
+随机行数：62
+估算比例为: 20.0
+M-hist预计 1.0 min完成
+随机预计 22.222487985948149 min 完成
+[真实:4 min]
+
+
 M-time [next] list the classes of the case, and list the funtions 隐藏使用的
 plan 60 min
 随机行数：32

@@ -13,14 +13,7 @@ class UseDate:
         self.listT_P=[]
         self.__GetRom()
         readline=1000
-        
-                
-    def Write_PT(self,PT):
-        ''' return the id of stt', save PT '''
-        stt=20
-        id=self.__Save(stt)
-        
-        return id
+
 
     def __GetRom(self):
         '''  return (0,1] 间的随机因子 '''
@@ -34,7 +27,7 @@ class UseDate:
 
         return stt
 
-    def __Save(self,stt):
+    def Save(self,PT,sTT):
         ''' 在history.list中存储new值 return id '''
         id = 1
 

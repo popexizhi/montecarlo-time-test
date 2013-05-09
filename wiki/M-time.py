@@ -3,6 +3,7 @@
 min M-time plan
 """
 import random
+import time
 class Mtime:
     def __init__(self):
         self.listT_P=[]
@@ -62,4 +63,6 @@ if __name__ == "__main__":
     print "M-hist预计 %r min完成" % PP
     PP2=m1.Bi(TT)
     print "随机预计 %r min 完成" % PP2
+    print time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())) # 参数说明参见 :http://www.cnblogs.com/wanpython/archive/2010/08/07/1794598.html
+
     

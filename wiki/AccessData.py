@@ -3,7 +3,11 @@
 accessDate in history.list
 """
 class AccessData:
-    def Save_STT(self,STT):
+    def __init__(self,filename):
+        self.filename=filename
+
+        
+    def Save_STT(self,PT,STT):
         ''' save STT ,返回id '''
         id=1
         return id
@@ -20,4 +24,4 @@ class AccessData:
 
 
 if __name__ == "__main__":
-    m1=AccessData()
+    m1=AccessData("test_history.list")
