@@ -14,6 +14,14 @@ M-hist预计 105.83333332927639 min完成
 随机预计 64.706689627891549 min 完成
 [真实:30min]
 
+M-time [next] quickbulid publis
+plan 30 min
+随机行数：30
+估算比例为: 1.9047619048
+M-hist预计 15.749999999685 min完成
+随机预计 27.443937130059155 min 完成
+[真实:77min]
+
 M-time [next] list the classes of the case, and list the funtions 隐藏使用的
 plan 60 min
 随机行数：32
