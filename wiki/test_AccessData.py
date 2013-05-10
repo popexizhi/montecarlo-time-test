@@ -10,4 +10,12 @@ class test_AccessData(unittest.TestCase):
         #<unu> set file
         #<du> set config，doing
         #<tri> test result
-        
+
+    def __setfile__(self,filename):
+        ''' 设置前置Data使用 '''
+
+    def __testresult__(self):
+        ''' 检测条件内容 '''
+        #<unu> test files
+        #<du> test return
+        #<tri> test param changed
