@@ -11,8 +11,10 @@ class test_AccessData(unittest.TestCase):
         #<unu> set file
         #<du> set config，doing
         #<tri> test result
+
+        #testcase <unu>
         testfile1="test1.list"
-        testline1=1
+        testline1=0
         nextline1=testline1+1
         PT=10
         STT=20
@@ -24,6 +26,7 @@ class test_AccessData(unittest.TestCase):
         #self.assertEqual(r1,nextline1) #返回行号为next
         self.__testfileresult__(testfile1,con)
 
+        #testcase <du>
         testfile2="test2.list"
         testline2=20
         nextline2=testline2+1

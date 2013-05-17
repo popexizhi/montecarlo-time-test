@@ -19,8 +19,11 @@ class AccessData:
         f=open(self.filename,"r")
         res=f.readlines()
         f.close()
-        last=res[len(res)-1]
-        id_last=last.split() 
+        if 0==len(res): #首行为空处理
+            id_last=[0]
+        else:
+            last=res[len(res)-1]
+            id_last=last.split() 
         newid=int(id_last[0])+1
 
         #<du> [next:存储结构后在拼字符串是不是好一点呢？]
