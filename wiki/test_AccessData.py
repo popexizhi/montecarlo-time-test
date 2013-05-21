@@ -40,6 +40,21 @@ class test_AccessData(unittest.TestCase):
         self.__testfileresult__(testfile2,con)        
         
 
+        #testcase <tri> save_STT(0) 当前模块不考虑此问题吧
+
+        #testcase <kvar> 空行内容测试
+        testfile3="test3.list"
+        testline3=100
+        nextline3=testline3+1
+        PT=10
+        STT=20
+        con="^"+str(nextline3)+'\t'+str(PT)+"\t"+str(STT)+"\t"
+        self.__setfile__(testline3,testfile3) #使用0文件测试
+        self.__setnulllinefile__(testline3,testfile3)#文件结尾添加空行
+        a3=AccessData(testfile3)
+        r3=a3.Save_STT(PT,STT)
+        #self.assertEqual(r1,nextline1) #返回行号为next
+        self.__testfileresult__(testfile3,con)         
 
     def __setfile__(self,line,filename):
         '''设置前置Data使用,默认只加入行号 '''
@@ -50,6 +65,12 @@ class test_AccessData(unittest.TestCase):
             #t='11\t10\t20\t'+'\n' #测试匹配使用
             f.writelines(t)
             i=i+1
+        f.close()
+
+    def __setnulllinefile__(self,line,filename):
+        '''产生测试文件使用，在指定文件中结尾插入空行 '''
+        f=open(filename,'a')
+        f.writelines("\n") #在文件结尾插入空行
         f.close()
 
     def __testfileresult__(self,filename,con):
