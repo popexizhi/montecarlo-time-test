@@ -54,6 +54,15 @@ M-hist预计 44.999999999437506 min完成
 随机预计 49.060192017582466 min 完成
 [真实:19 min]
 
+M-time [next] TDD 2 -TDDcode for test
+plan 20 min
+随机行数：99
+估算比例为: 1.0
+M-hist预计 20.0 min完成
+随机预计 20.866788910627132 min 完成
+[当前已经使用24，未完成]
+
+
 M-time [next] list the classes of the case, and list the funtions 隐藏使用的
 plan 60 min
 随机行数：32

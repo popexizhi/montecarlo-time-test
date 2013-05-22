@@ -4,6 +4,10 @@ accessDate in history.list
 """
 import time
 
+#Define exceptions
+class AccessErr(Exception):pass
+class FileErr(AccessErr):pass #存储文件格式问题
+
 class AccessData:
     def __init__(self,filename):
         self.filename=filename

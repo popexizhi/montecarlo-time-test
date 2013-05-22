@@ -6,13 +6,43 @@ from AccessData import AccessData
 import unittest
 import re
 class test_AccessData(unittest.TestCase):
+    def testSaveTT(self):
+        """test Save_TT(self,TT,id)"""
+        #<unu> id 不存在
+        #<du>  id=1 save
+        #<tri> id=20 save
+
+        #testcase <unu>
+        testfile0="test0.list"
+        testline0=0
+        TT=21.5
+        id=1
+        self.__setfile__(testline0,testfile0) #使用空文件测试
+        a0=AccessData(testfile0)
+        self.assertRaises(AccessData.FileErr,a0.Save_TT,TT,id)
+
+        #testcase <du>
+        testfile1="test1.list"
+        testline1=0
+        id=testline1+1
+        TT=21.5
+        
+
+        a1=AccessData(testfile1)
+        r1=a1.Save_TT(TT,id)
+        con=str(TT)
+        self.__testfileresult__(testfile1,con)        
+        
+        
+
+        
     def testSaveSTT(self):
         """test Save_STT(PT,STT)"""
         #<unu> set file
         #<du> set config，doing
         #<tri> test result
 
-        #testcase <unu>
+        #testcase <unu> PS:testSaveTT()使用此条件，修改时注意 use for testdata 2<du>
         testfile1="test1.list"
         testline1=0
         nextline1=testline1+1
