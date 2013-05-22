@@ -23,6 +23,12 @@ class AccessData:
             id_last=[0]
         else:
             last=res[len(res)-1]
+            #对存储文件中存在空行的处理,此存在方式对存储文件的空行为容忍状态
+            use_last=len(res)-1
+            while 0 == len(last)-1 :
+                use_last = use_last -1
+                last = res[use_last]
+                
             id_last=last.split() 
         newid=int(id_last[0])+1
 

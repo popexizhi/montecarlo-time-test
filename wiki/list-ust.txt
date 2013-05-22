@@ -46,6 +46,13 @@ M-hist预计 1.0 min完成
 随机预计 22.222487985948149 min 完成
 [真实:4 min]
 
+M-time [next]	TDD 1 -4添加空行处理
+plan 40 min
+随机行数：85
+估算比例为: 0.88888888889999995
+M-hist预计 44.999999999437506 min完成
+随机预计 49.060192017582466 min 完成
+
 
 M-time [next] list the classes of the case, and list the funtions 隐藏使用的
 plan 60 min
