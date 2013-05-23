@@ -2,38 +2,12 @@
 """
 test AccessData
 """
-from AccessData import AccessData
+#from AccessData import AccessData
+import AcData
 import unittest
 import re
 class test_AccessData(unittest.TestCase):
-    def testSaveTT(self):
-        """test Save_TT(self,TT,id)"""
-        #<unu> id 不存在
-        #<du>  id=1 save
-        #<tri> id=20 save
 
-        #testcase <unu>
-        testfile0="test0.list"
-        testline0=0
-        TT=21.5
-        id=1
-        self.__setfile__(testline0,testfile0) #使用空文件测试
-        a0=AccessData(testfile0)
-        self.assertRaises(AccessData.FileErr,a0.Save_TT,TT,id)
-
-        #testcase <du>
-        testfile1="test1.list"
-        testline1=0
-        id=testline1+1
-        TT=21.5
-        
-
-        a1=AccessData(testfile1)
-        r1=a1.Save_TT(TT,id)
-        con=str(TT)
-        self.__testfileresult__(testfile1,con)        
-        
-        
 
         
     def testSaveSTT(self):
@@ -51,7 +25,7 @@ class test_AccessData(unittest.TestCase):
         
         con="^"+str(nextline1)+'\t'+str(PT)+"\t"+str(STT)+"\t"
         self.__setfile__(testline1,testfile1) #使用0文件测试
-        a1=AccessData(testfile1)
+        a1=AcData.AccessData(testfile1)
         r1=a1.Save_STT(PT,STT)
         #self.assertEqual(r1,nextline1) #返回行号为next
         self.__testfileresult__(testfile1,con)
@@ -64,7 +38,7 @@ class test_AccessData(unittest.TestCase):
         STT=20
         con="^"+str(nextline2)+'\t'+str(PT)+"\t"+str(STT)+"\t"
         self.__setfile__(testline2,testfile2) #使用0文件测试
-        a2=AccessData(testfile2)
+        a2=AcData.AccessData(testfile2)
         r2=a2.Save_STT(PT,STT)
         #self.assertEqual(r1,nextline1) #返回行号为next
         self.__testfileresult__(testfile2,con)        
@@ -81,10 +55,49 @@ class test_AccessData(unittest.TestCase):
         con="^"+str(nextline3)+'\t'+str(PT)+"\t"+str(STT)+"\t"
         self.__setfile__(testline3,testfile3) #使用0文件测试
         self.__setnulllinefile__(testline3,testfile3)#文件结尾添加空行
-        a3=AccessData(testfile3)
+        a3=AcData.AccessData(testfile3)
         r3=a3.Save_STT(PT,STT)
         #self.assertEqual(r1,nextline1) #返回行号为next
-        self.__testfileresult__(testfile3,con)         
+        self.__testfileresult__(testfile3,con)
+
+    def testSaveTT(self):
+        """test Save_TT(self,TT,id)"""
+        #<unu> id 不存在
+        #<du>  id=1 save
+        #<tri> id=20 save
+
+        #testcase <unu>
+        testfile0="test0.list"
+        testline0=0
+        TT=21.5
+        id=1
+        self.__setfile__(testline0,testfile0) #使用空文件测试
+        a0=AcData.AccessData(testfile0)
+        self.assertRaises(AcData.FileErr,a0.Save_TT,TT,id)
+        print "-------------ok"
+
+        #testcase <du>
+        testfile1="test1.list"
+        testline1=1
+        TT=21.5
+
+        a1=AcData.AccessData(testfile1)
+        r1=a1.Save_TT(TT,testline1)
+        con=str(TT)
+        self.__testfileresult__(testfile1,con)
+        
+
+        #testcase <tri>
+        testfile2="test2.list"
+        testline2=20
+        TT=110
+
+        a2=AcData.AccessData(testfile2)
+        r2=a2.Save_TT(TT,testline2)
+        con=str(TT)
+        self.__testfileresult__(testfile2,con)
+        
+
 
     def __setfile__(self,line,filename):
         '''设置前置Data使用,默认只加入行号 '''
@@ -119,6 +132,9 @@ class test_AccessData(unittest.TestCase):
         #检查内容匹配
         if not re.search(con,last):
             print '%r 中不包含 %r' % (last,con)
+
+
+    
         
         
 

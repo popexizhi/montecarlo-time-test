@@ -3,10 +3,11 @@
 accessDate in history.list
 """
 import time
+import re
 
 #Define exceptions
-class AccessErr(Exception):pass
-class FileErr(AccessErr):pass #存储文件格式问题
+class AccessErr(Exception): pass
+class FileErr(AccessErr): pass #存储文件格式问题
 
 class AccessData:
     def __init__(self,filename):
@@ -50,8 +51,36 @@ class AccessData:
 
     def Save_TT(self,TT,id):
         '''通过id 保存TT '''
+        #<unu> whether id id in getfile
+        #<du>   save TT and id
+
+        #<unu>
+        f=open(self.filename,"r")
+        res=f.readlines()
+        f.close()
+
+        linenum=self.__idinfile__(id,res)
+        if linenum > 0:
+            print linenum
+        else:
+            raise FileErr,'##################%d not in %r' % (id,self.filename)
+        
         return 0 # 保存成功
 
+    def __idinfile__(self,id,res):
+        """判断id 在res中是否为存在 id,存在返回id所在行号，不存在返回0"""
+        lines=len(res)
+        i=0
+        ret=0
+        con="^"+str(id)+"\t"
+        while i<lines :
+            if re.search(con,res[i]):
+                ret=i
+                return ret
+            else:
+                i=i+1
+        return ret
+    
     
     def Show(self,id):
         '''all id data show '''
@@ -62,3 +91,4 @@ class AccessData:
 if __name__ == "__main__":
     m1=AccessData("history.list")
     m1.Save_STT(10,20)
+    m1.Save_TT(21.5,10)
