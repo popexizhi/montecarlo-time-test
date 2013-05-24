@@ -9,9 +9,11 @@ import re
 class AccessErr(Exception): pass
 class FileErr(AccessErr): pass #存储文件格式问题
 
+
 class AccessData:
     def __init__(self,filename):
         self.filename=filename
+        self.lit='\t' #使用\t分割文件存储
 
         
     def Save_STT(self,PT,STT):
@@ -38,9 +40,8 @@ class AccessData:
         newid=int(id_last[0])+1
 
         #<du> [next:存储结构后在拼字符串是不是好一点呢？]
-        lit='\t' #使用\t分割
         PTtime=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())) #PT估算时间
-        strcon=str(newid)+lit+str(PT)+lit+str(STT)+lit+PTtime+"\n"
+        strcon=str(newid)+self.lit+str(PT)+self.lit+str(STT)+self.lit+PTtime+"\n"
         #<tri>
         f=open(self.filename,"a")
         f.writelines(strcon)
@@ -60,10 +61,22 @@ class AccessData:
         f.close()
 
         linenum=self.__idinfile__(id,res)
-        if linenum > 0:
-            print linenum
+        if linenum >= 0:
+            #<du>
+            TTtime=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())) #TTsave时间
+            con=self.lit+str(TT)+self.lit+TTtime+"\n"
+            #print "%r ++++ %s" % (res[linenum],con)
+            #创建新的字符串内容，使用局部替换，参见:http://www.cnblogs.com/agateriver/archive/2005/08/29/225565.html
+            reobj=re.compile("\n")
+            res[linenum]=reobj.sub(con,res[linenum])
+            print res[linenum]
+
+            f=open(self.filename,"w")
+            f.writelines(res)
+            f.close()
+            
         else:
-            raise FileErr,'##################%d not in %r' % (id,self.filename)
+            raise FileErr,' %d not in %r' % (id,self.filename)
         
         return 0 # 保存成功
 
@@ -71,9 +84,12 @@ class AccessData:
         """判断id 在res中是否为存在 id,存在返回id所在行号，不存在返回0"""
         lines=len(res)
         i=0
-        ret=0
+        ret=-1
         con="^"+str(id)+"\t"
         while i<lines :
+            #print res[i]
+            #print con
+            #print re.search(con,res[i])
             if re.search(con,res[i]):
                 ret=i
                 return ret

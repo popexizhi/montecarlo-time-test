@@ -89,7 +89,7 @@ class test_AccessData(unittest.TestCase):
 
         #testcase <tri>
         testfile2="test2.list"
-        testline2=20
+        testline2=21
         TT=110
 
         a2=AcData.AccessData(testfile2)

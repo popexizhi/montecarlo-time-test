@@ -6,9 +6,10 @@ import random
 class Rond:
     def GetRom(self):
         """ 返回随机因子(0,1]"""
-        rom=0.02
+        rom=random.random()#获得随机值
 
         return rom
     
 if __name__ == "__main__":
     x=Rond()
+    print x.GetRom()

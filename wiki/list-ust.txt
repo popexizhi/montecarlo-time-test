@@ -68,7 +68,7 @@ plan 20 min
 估算比例为: 0.39473684209999998
 M-hist预计 50.666666667342227 min完成
 随机预计 15.07181569248163 min 完成
-[真实:58 min]
+[真实:68 min]
 
 M-time [next] TDD2 - code for testcase 2,3
 plan 30 min
@@ -76,7 +76,7 @@ plan 30 min
 估算比例为: 1.9047619048
 M-hist预计 15.749999999685 min完成
 随机预计 19.150497083814798 min 完成
-[真实:]
+[真实:37 min]
 
 M-time [next] list the classes of the case, and list the funtions 隐藏使用的
 plan 60 min
