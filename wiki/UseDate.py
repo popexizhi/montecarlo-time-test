@@ -3,7 +3,7 @@
 use PT 推算 TT
 """
 from Rond import Rond
-from AccessData import AccessData
+import AcData
 class UseDate:
     
     def __init__(self,file="history.list"):
@@ -12,7 +12,7 @@ class UseDate:
         '''
         self.listT_P=[]
         self.__GetRom()
-        readline=1000
+        self.readline=1000
 
 
     def __GetRom(self):

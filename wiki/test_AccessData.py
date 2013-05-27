@@ -1,6 +1,6 @@
 # -*- coding:UTF8 -*-
 """
-test AccessData
+test AcData
 """
 #from AccessData import AccessData
 import AcData

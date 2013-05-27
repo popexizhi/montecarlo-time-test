@@ -78,6 +78,46 @@ M-hist预计 15.749999999685 min完成
 随机预计 19.150497083814798 min 完成
 [真实:37 min]
 
+M-time [next] TDD4 - code for test
+plan 40 min
+随机行数：45
+估算比例为: 1.25
+M-hist预计 32.0 min完成
+随机预计 40.075715570377156 min 完成
+[]
+
+M-time [next] TDD 4 - code for test 3
+plan 30 min
+随机行数：59
+估算比例为: 1.1764705881999999
+M-hist预计 25.500000000765002 min完成
+随机预计 19.984722260520918 min 完成
+[]
+
+M-time [next] TDD 4 - code for test 2
+plan 60 min
+随机行数：36
+估算比例为: 5.0
+M-hist预计 12.0 min完成
+随机预计 33.225762832698614 min 完成
+[]
+
+M-time [next] TDD 4 - code for test 4
+plan 20 min
+随机行数：89
+估算比例为: 0.90909090910000001
+M-hist预计 21.999999999779998 min完成
+随机预计 27.571878525660445 min 完成
+[]
+
+M-time [next] TDD 4 - code for test 1
+plan 30 min
+随机行数：64
+估算比例为: 1.8181818182
+M-hist预计 16.499999999835001 min完成
+随机预计 68.972142578783732 min 完成
+[]
+
 M-time [next] list the classes of the case, and list the funtions 隐藏使用的
 plan 60 min
 随机行数：32
