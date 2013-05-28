@@ -108,7 +108,7 @@ plan 60 min
 估算比例为: 5.0
 M-hist预计 12.0 min完成
 随机预计 33.225762832698614 min 完成
-[]
+[真实:57 min]
 
 M-time [next] TDD 4 - code for test 4
 plan 20 min

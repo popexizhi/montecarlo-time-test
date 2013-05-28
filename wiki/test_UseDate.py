@@ -17,25 +17,25 @@ class testUseDate(unittest.TestCase):
         #<unu> [？] 如何可以不创建随机row
         filename="tUD0.list"
         a=UseDate.UseDate(filename)
-        #self.__testrow1000(filename)
+        self.__testrow1000(filename)
 
         #<du>
-        filename="tUD1.list"
-        self.__setfile__(100,filename)
-        a2=UseDate.UseDate(filename)
-        #self.__testrow1000(filename)
+        filename1="tUD1.list"
+        self.__setfile__(900,filename1)
+        a2=UseDate.UseDate(filename1)
+        self.__testrow1000(filename1)
 
         #<tri>
-        filename="tUD2.list"
-        self.__setfile__(1000,filename)
-        a3=UseDate.UseDate(filename)
-        self.__testrow1000(filename)
+        filename2="tUD2.list"
+        self.__setfile__(1000,filename2)
+        a3=UseDate.UseDate(filename2)
+        self.__testrow1000(filename2)
 
         #<kvar>
-        filename="tUD3.list"
-        self.__setfile__(1100,filename)
-        a3=UseDate.UseDate(filename)
-        self.__testrow1000(filename)
+        filename3="tUD3.list"
+        self.__setfile__(1100,filename3)
+        a3=UseDate.UseDate(filename3)
+        self.__testrow1000(filename3)
         
         
         

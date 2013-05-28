@@ -13,18 +13,39 @@ class UseDate:
         self.listT_P=[]
         self.__GetRom()
         self.readline=1000 #随机设定值，后续扩展可以根据统计结果修改
-
+        self.lit='\t' #使用\t分割文件存储
+        
         #<unu>
         f=open(file,'r')
         con=f.readlines()
         f.close()
 
-        if len(con) > 0 :#self.readline-1 : #这个判断条件有问题，应该是可用的T_P大于等于1000，要求修改
-            self.__getlistT_P(con)
-        else :
-            #self.__setromT_P(con)
-            self.__getlistT_P(con)
+        self.__getlistT_P(con) #读取当前文件可用内容
+        #print self.listT_P
+        if len(self.listT_P) < 1000 :#可用的T_P不足1000，要求随机数据补充
+            self.__setromT_P(file)
+            
 
+        #print self.listT_P
+
+    def __setromT_P(self,file):
+        '''使用随机数据补充listT_P内容的不足处 '''
+        listlong=len(self.listT_P)
+        print listlong
+        newrom=""
+        while listlong < 1000 :
+            bm=Rond()
+            mPP=bm.GetBi()
+            self.listT_P.insert(listlong,[listlong+1,mPP])
+            newrom=newrom+str(listlong+1)+self.lit+self.lit+self.lit+self.lit+self.lit+self.lit+str(mPP)+self.lit+"\n"
+            #print newrom
+            listlong = listlong+1
+        
+        
+        f=open(file,"a")
+        f.writelines(newrom)
+        f.close()
+        
 
     def __getlistT_P(self,filecon):
         '''设置filecon 内容到self.listT_P '''
@@ -70,4 +91,4 @@ class UseDate:
         return 0 # 保存成功
 
 if __name__ == "__main__":
-    m1=UseDate("tUD2.list")
+    m1=UseDate("tUD1.list")
