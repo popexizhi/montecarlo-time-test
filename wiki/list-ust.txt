@@ -78,13 +78,21 @@ M-hist预计 15.749999999685 min完成
 随机预计 19.150497083814798 min 完成
 [真实:37 min]
 
+M-time [next] linux shell - add publish cg.sh
+plan 40 min
+随机行数：90
+估算比例为: 1.1111111111
+M-hist预计 36.000000000359996 min完成
+随机预计 34.43958832498663 min 完成
+[真实:40 min]
+
 M-time [next] TDD4 - code for test
 plan 40 min
 随机行数：45
 估算比例为: 1.25
 M-hist预计 32.0 min完成
 随机预计 40.075715570377156 min 完成
-[]
+[真实:34 min]
 
 M-time [next] TDD 4 - code for test 3
 plan 30 min
