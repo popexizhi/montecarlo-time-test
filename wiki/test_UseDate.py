@@ -53,7 +53,7 @@ class testUseDate(unittest.TestCase):
         f=open(filename,"w")
         i=1
         while i<=line:
-            t=str(i)+'\tPT\tTT\tPT-time\tTT\tTT-time\t20\n'
+            t=str(i)+'\tPT\tTT\tPT-time\tTT\tTT-time\t20\t\n'
             #t='11\t10\t20\t'+'\n' #测试匹配使用
             f.writelines(t)
             i=i+1

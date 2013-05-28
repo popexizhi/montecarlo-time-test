@@ -100,7 +100,7 @@ plan 30 min
 估算比例为: 1.1764705881999999
 M-hist预计 25.500000000765002 min完成
 随机预计 19.984722260520918 min 完成
-[]
+[真实:56 min]
 
 M-time [next] TDD 4 - code for test 2
 plan 60 min
