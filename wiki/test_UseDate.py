@@ -14,7 +14,7 @@ class testUseDate(unittest.TestCase):
         #<tri> list =1000
         #<kvar> list >1000
 
-        #<unu> [？] 如何可以不创建随机row
+        #<unu> 
         filename="tUD0.list"
         a=UseDate.UseDate(filename)
         self.__testrow1000(filename)

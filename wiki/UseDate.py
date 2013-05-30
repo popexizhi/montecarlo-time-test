@@ -15,14 +15,14 @@ class UseDate:
         self.readline=1000 #随机设定值，后续扩展可以根据统计结果修改
         self.lit='\t' #使用\t分割文件存储
         
-        #<unu>
+        #<unu> [next]读取位置修改为AccessData中的操作
         f=open(file,'r')
         con=f.readlines()
         f.close()
 
         self.__getlistT_P(con) #读取当前文件可用内容
         #print self.listT_P
-        if len(self.listT_P) < 1000 :#可用的T_P不足1000，要求随机数据补充
+        if len(self.listT_P) < self.readline :#可用的T_P不足1000，要求随机数据补充
             self.__setromT_P(file)
             
 
@@ -62,7 +62,7 @@ class UseDate:
                 #print li_con
                 pass
             else:
-                self.listT_P.insert(listi,[li_con[0],li_con[6]])
+                self.listT_P.insert(listi,li_con[6])
                 #print self.listT_P[listi]
                 listi=listi+1
                 
@@ -71,18 +71,29 @@ class UseDate:
     def __GetRom(self):
         '''  return (0,1] 间的随机因子 '''
         bi=Rond()
-        bi.GetRom()
-        return bi
+        res=0
+        while 0 == res :    #如果返回0，重新获得数据
+            res=bi.GetRom()    
+        return res
 
     def __Bi_use(self,PT):
-        ''' 使用history.list 范围（默认100），计算stt' return '''
-        stt=20
+        ''' 使用history.list 范围（默认1000 self.readline），计算stt' return '''
+        x=self.__GetRom()
+        line=int(x*self.readline)
+        bi_stt=float(self.listT_P[line-1])
+        #print bi_stt
+        stt= float(PT) / bi_stt
 
         return stt
 
-    def Save(self,PT,sTT):
+    def Save(self,PT):
         ''' 在history.list中存储new值 return id '''
-        id = 1
+        id=1
+        sTT=self.__Bi_use(PT)
+        print "sTT=%r" % sTT
+
+        
+        
 
         return id
 
@@ -91,4 +102,5 @@ class UseDate:
         return 0 # 保存成功
 
 if __name__ == "__main__":
-    m1=UseDate("tUD1.list")
+    m1=UseDate("tUD0.list")
+    m1.Save(20)

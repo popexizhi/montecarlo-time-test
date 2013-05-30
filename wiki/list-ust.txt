@@ -110,21 +110,38 @@ M-hist预计 12.0 min完成
 随机预计 33.225762832698614 min 完成
 [真实:57 min]
 
-M-time [next] TDD 4 - code for test 4
-plan 20 min
-随机行数：89
-估算比例为: 0.90909090910000001
-M-hist预计 21.999999999779998 min完成
-随机预计 27.571878525660445 min 完成
-[]
-
-M-time [next] TDD 4 - code for test 1
+M-time [next] eaxmapply-crm数据同步-add data ana
 plan 30 min
-随机行数：64
-估算比例为: 1.8181818182
-M-hist预计 16.499999999835001 min完成
-随机预计 68.972142578783732 min 完成
-[]
+随机行数：93
+估算比例为: 2.7272727272999999
+M-hist预计 10.999999999890001 min完成
+随机预计 36.198950560488846 min 完成
+[真实:26 min]
+
+M-time [next] eaxmapply-crm同步数据-变量数据准备
+plan 40 min
+随机行数：80
+估算比例为: 0.69767441860000001
+M-hist预计 57.333333333715558 min完成
+随机预计 63.750822034687893 min 完成
+[真实: 120 min]
+
+M-time [next] eaxmapply-crm 定制固定数据
+plan 20 min
+随机行数：58
+估算比例为: 1.0526315789
+M-hist预计 19.000000000855 min完成
+随机预计 19.120410822194838 min 完成
+[真实: 16 min]
+
+M-time [next] eaxmapply-crm 定制字段
+plan 10 min
+随机行数：12
+估算比例为: 2.0
+M-hist预计 5.0 min完成
+随机预计 12.005746412160004 min 完成
+[真实: 11 min]
+
 
 M-time [next] list the classes of the case, and list the funtions 隐藏使用的
 plan 60 min
