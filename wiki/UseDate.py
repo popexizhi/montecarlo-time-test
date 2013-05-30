@@ -62,7 +62,7 @@ class UseDate:
             li_con=rowcon.split('\t')# 使用\t分割读取的数据
             #print li_con
             #print li_con[6]
-            if "" == li_con[6] :
+            if len(li_con) < 6 or "" == li_con[6] :
                 #无法读取使用，继续下次读取
                 #print li_con
                 pass
@@ -112,5 +112,6 @@ class UseDate:
         return 0 # 保存成功
 
 if __name__ == "__main__":
-    m1=UseDate("tUD0.list")
-    m1.SavePT(20)
+    m1=UseDate("history.list")
+    TT=float(raw_input('你的估算时间：'))
+    print "id=%d" % m1.SavePT(TT)

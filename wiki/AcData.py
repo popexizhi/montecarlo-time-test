@@ -41,7 +41,7 @@ class AccessData:
 
         #<du> [next:存储结构后在拼字符串是不是好一点呢？]
         PTtime=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())) #PT估算时间
-        strcon=str(newid)+self.lit+str(PT)+self.lit+str(STT)+self.lit+PTtime+"\n"
+        strcon=str(newid)+self.lit+str(PT)+self.lit+str(STT)+self.lit+PTtime+"\n" 
         #<tri>
         f=open(self.filename,"a")
         f.writelines(strcon)
