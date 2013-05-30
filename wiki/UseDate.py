@@ -2,6 +2,10 @@
 """
 use PT 推算 TT
 """
+#Define exceptions
+class UseDateError(Exception):pass
+class PTZero(UseDateError):pass
+
 from Rond import Rond
 import AcData
 class UseDate:
@@ -14,6 +18,7 @@ class UseDate:
         self.__GetRom()
         self.readline=1000 #随机设定值，后续扩展可以根据统计结果修改
         self.lit='\t' #使用\t分割文件存储
+        self.file=file
         
         #<unu> [next]读取位置修改为AccessData中的操作
         f=open(file,'r')
@@ -36,7 +41,7 @@ class UseDate:
         while listlong < 1000 :
             bm=Rond()
             mPP=bm.GetBi()
-            self.listT_P.insert(listlong,[listlong+1,mPP])
+            self.listT_P.insert(listlong,mPP)
             newrom=newrom+str(listlong+1)+self.lit+self.lit+self.lit+self.lit+self.lit+self.lit+str(mPP)+self.lit+"\n"
             #print newrom
             listlong = listlong+1
@@ -80,20 +85,25 @@ class UseDate:
         ''' 使用history.list 范围（默认1000 self.readline），计算stt' return '''
         x=self.__GetRom()
         line=int(x*self.readline)
+        #print line
+        #print self.listT_P[line-1]
         bi_stt=float(self.listT_P[line-1])
         #print bi_stt
         stt= float(PT) / bi_stt
 
         return stt
 
-    def Save(self,PT):
+    def SavePT(self,PT):
         ''' 在history.list中存储new值 return id '''
-        id=1
+        #PT 不能为0
+        if 0 == PT :
+            raise PTZero, "PT is not Zero"
+        
+        id=-1
         sTT=self.__Bi_use(PT)
         print "sTT=%r" % sTT
-
-        
-        
+        savefile=AcData.AccessData(self.file)
+        id=savefile.Save_STT(PT,sTT)
 
         return id
 
@@ -103,4 +113,4 @@ class UseDate:
 
 if __name__ == "__main__":
     m1=UseDate("tUD0.list")
-    m1.Save(20)
+    m1.SavePT(20)

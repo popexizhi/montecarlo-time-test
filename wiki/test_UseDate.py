@@ -59,6 +59,25 @@ class testUseDate(unittest.TestCase):
             i=i+1
         f.close()
 
+    def testSavePT(self):
+        """test save_PT() """
+        PT_filelist=((20,0),(20,21),(20,1000))
+        PT=line=0
+        
+        for (PT,line) in PT_filelist:
+            filename="fi"+str(line)+".list"
+            self.__setfile__(line,filename)
+            a=UseDate.UseDate(filename)
+            idt=a.SavePT(PT)
+            print "save PT=%s,id=%d " % (PT,idt)
+            self.assertEqual(1001,idt)
+            
+    def testSavePTZero(self):
+        """test save_PT() input zero"""
+        filename="tUD1.list"
+        a=UseDate.UseDate(filename)
+        self.assertRaises(UseDate.PTZero,a.SavePT,0)        
+
         
 if __name__=="__main__":
     unittest.main()

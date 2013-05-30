@@ -142,6 +142,30 @@ M-hist预计 5.0 min完成
 随机预计 12.005746412160004 min 完成
 [真实: 11 min]
 
+M-time [next] TDD7 test code
+plan 30 min
+随机行数：10
+估算比例为: 2.1428571429000001
+M-hist预计 13.99999999972 min完成
+随机预计 20.733662833080025 min 完成
+[真实: 43 min]
+
+M-time [next] TDD7 testcase 1/2/5
+plan 20 min
+随机行数：18
+估算比例为: 1.1111111111
+M-hist预计 18.000000000179998 min完成
+随机预计 52.110211821452573 min 完成
+[真实: 12 min]
+
+M-time [next] TDD7 3
+plan 10 min
+随机行数：99
+估算比例为: 1.0
+M-hist预计 10.0 min完成
+随机预计 14.522005463050114 min 完成
+[真实: 5 min]
+
 
 M-time [next] list the classes of the case, and list the funtions 隐藏使用的
 plan 60 min
