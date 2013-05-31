@@ -5,6 +5,7 @@ use PT 推算 TT
 #Define exceptions
 class UseDateError(Exception):pass
 class PTZero(UseDateError):pass
+class TTiddoubleErr(UseDateError):pass
 
 from Rond import Rond
 import AcData

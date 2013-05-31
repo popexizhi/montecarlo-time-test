@@ -78,6 +78,41 @@ class testUseDate(unittest.TestCase):
         a=UseDate.UseDate(filename)
         self.assertRaises(UseDate.PTZero,a.SavePT,0)        
 
+    def testSaveTT(self):
+        """test save_TT()"""
+        TT_filelist=((25,1001),(128,1002))
+        TT=id=0
+        filename="TTfi.list"
+        f=open(filename,"w")
+        f.close()
+        for (TT,id) in TT_filelist:
+            a=UseDate.UseDate(filename)
+            idr=a.SavePT(20)
+            self.assertEqual(idr,id)
+            a.Save_TT(id,TT)
+            #test TT
+            saveTT=self.__testTT(filename)
+            self.assertEqual(TT,saveTT)
+
+    def __testTT(self,filename):
+        "getlast TT"
+        TT=-1
+        f=open(filename,"r")
+        con=f.readlines()
+        f.close()
+
+        lastline=con[len(con)-1].split("\t")
+        if len(lastline)<6 :
+            pass
+        else:
+            TT=TTline[6]
+
+    def testDoerrSaveTT(self):
+        """test double id saveTT """
+        filename="TTfi.list"
+        a=UseDate.UseDate(filename)
+        self.assertRaises(UseDate.TTiddoubleErr,a.Save_TT,1000,20)
+
         
 if __name__=="__main__":
     unittest.main()
