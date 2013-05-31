@@ -134,7 +134,18 @@ class test_AccessData(unittest.TestCase):
             print '%r 中不包含 %r' % (last,con)
 
 
-    
+    def testSaveT_P(self):
+        """test SaveT_P """
+        filename="test2.list"
+        T_P=0.001
+        id=1
+
+        a=AcData.AccessData(filename)
+        id=a.Save_STT(0.001,10)
+        a.SaveT_P(T_P,id)
+        print "------------------save- id=%d-----------" % id
+        print a.Show(id)
+
         
         
 

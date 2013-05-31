@@ -79,6 +79,9 @@ class AccessData:
             raise FileErr,' %d not in %r' % (id,self.filename)
         
         return 0 # 保存成功
+    def SaveT_P(self,T_P,id):
+        """save T_P """
+        pass
 
     def __idinfile__(self,id,res):
         """判断id 在res中是否为存在 id,存在返回id所在行号，不存在返回0"""
@@ -100,11 +103,34 @@ class AccessData:
     
     def Show(self,id):
         '''all id data show '''
-        row={}
+        row=""
+        f=open(self.filename,"r")
+        con=f.readlines()
+        f.close()
+
+        if len(con)>id:
+            row=con[id] #[?] 没与测试这个位置有隐患
+
         return row
 
+    def ShowTT(self,id):
+        """return id line TT """
+        TT=""
+        row=self.Show(id).split(self.lit)
+        if len(row)>4:
+            TT=row[4]
+        return TT
+
+    def ShowPT(self,id):
+        """return id line PT """
+        PT=""
+        row=self.Show(id).split(self.lit)
+        if len(row)>2:
+            PT=row[2]
+        return PT
 
 if __name__ == "__main__":
     m1=AccessData("history.list")
-    m1.Save_STT(10,20)
-    m1.Save_TT(21.5,10)
+    line=m1.Save_STT(10,20)
+    print line
+    print m1.Show(line)

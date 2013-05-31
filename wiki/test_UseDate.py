@@ -85,14 +85,15 @@ class testUseDate(unittest.TestCase):
         filename="TTfi.list"
         f=open(filename,"w")
         f.close()
+        a=UseDate.UseDate(filename)
+
         for (TT,id) in TT_filelist:
-            a=UseDate.UseDate(filename)
             idr=a.SavePT(20)
             self.assertEqual(idr,id)
             a.Save_TT(id,TT)
             #test TT
             saveTT=self.__testTT(filename)
-            self.assertEqual(TT,saveTT)
+            self.assertEqual(str(TT),saveTT)
 
     def __testTT(self,filename):
         "getlast TT"
@@ -103,15 +104,28 @@ class testUseDate(unittest.TestCase):
 
         lastline=con[len(con)-1].split("\t")
         if len(lastline)<6 :
+            #print lastline
             pass
         else:
-            TT=TTline[6]
+            TT=lastline[4]
+
+        return TT
 
     def testDoerrSaveTT(self):
         """test double id saveTT """
         filename="TTfi.list"
         a=UseDate.UseDate(filename)
         self.assertRaises(UseDate.TTiddoubleErr,a.Save_TT,1000,20)
+
+    def testBiT_P(self):
+        """test BiT_P """
+        a=UseDate.UseDate("TTfi.list")
+        T_P=((20,20),(45.1,70.2),(0.1,2000))
+        TT=0
+        PT=0
+        for (TT,PT) in T_P:
+            x=a.BiT_P(TT,PT)
+            self.assertEqual(x-float(TT/PT),0)
 
         
 if __name__=="__main__":

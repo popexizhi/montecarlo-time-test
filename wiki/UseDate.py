@@ -63,7 +63,7 @@ class UseDate:
             li_con=rowcon.split('\t')# 使用\t分割读取的数据
             #print li_con
             #print li_con[6]
-            if len(li_con) < 6 or "" == li_con[6] :
+            if len(li_con) < 7 or "" == li_con[6] :
                 #无法读取使用，继续下次读取
                 #print li_con
                 pass
@@ -110,9 +110,34 @@ class UseDate:
 
     def Save_TT(self,id,TT):
         ''' 存储对应的TT到id中 '''
-        return 0 # 保存成功
+        rid=id
+        savefile=AcData.AccessData(self.file)
+        #get TT 判断是为空
+        if ""==savefile.ShowTT(id):        
+            #save TT
+            savefile.Save_TT(TT,rid)
+        else:
+            raise TTiddoubleErr,'id=%d TT已经存储，请核对您的id ' % rid
+        return rid # 保存成功
+
+    def BiT_P(self,TT,PT):
+        ''' 计算TT/PT 比例 '''
+        assert PT <> 0 #断言PT一定不为0
+        res=float(TT)/float(PT)
+        
+        return res
 
 if __name__ == "__main__":
     m1=UseDate("history.list")
-    TT=float(raw_input('你的估算时间：'))
-    print "id=%d" % m1.SavePT(TT)
+    list=""
+    while 1:
+        list=raw_input('存储TT请输入1,退出为0，否则为估算蒙式时间:')
+        if "0" == list:
+            break
+        if "1" == list:
+            TTid=int(raw_input('id为:'))
+            TT=float(raw_input('TT为:'))
+            m1.Save_TT(TTid,TT)
+        else:
+            PT=float(raw_input('你的估算时间：'))
+            print "id=%d" % m1.SavePT(PT)
