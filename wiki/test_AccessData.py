@@ -159,6 +159,7 @@ class test_AccessData(unittest.TestCase):
 
     def testSaveT_P(self):
         """test SaveT_P """
+        print "#############################testSaveT_P"
         filename="test2.list"
         T_P=0.001
         id=1
@@ -167,8 +168,10 @@ class test_AccessData(unittest.TestCase):
         id=a.Save_STT(0.001,10)
         a.SaveT_P(T_P,id)
         con=str(T_P)
-        self.__testfileidresult__(filename,con,id)
 
+        self.__testfileidresult__(filename,con,id)
+        print "#############################testSaveT_P"
+        
     def testSaveT_PErrid(self):
         """test SaveT_P no hava the id """
         filename="test2.list"

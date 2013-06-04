@@ -83,8 +83,36 @@ class AccessData:
         return 0 # 保存成功
     def SaveT_P(self,T_P,id):
         """save T_P """
-        pass
+        #<unu> get id 的内容
+        #<du> edit 此id后的T_P
+        #<tri> save new row
 
+        #<unu>
+        sourT_P=self.ShowT_P(id)
+        if "" == sourT_P:
+            pass
+        else:
+            raise T_Pisdef,"%d 已经定义T_P为%r,请确认你的id" % (id,sourT_P)
+
+        #<du>
+        f=open(self.filename,"r")
+        con=f.readlines()
+        f.close()
+
+        T_P=self.lit+str(T_P)+"\n"
+        for i in range(0,len(con)):
+            if re.search(str(id),con[i]):
+                reobj=re.compile("\n")
+                con[i]=reobj.sub(T_P,con[i])
+                print con[i]
+        #<tri>
+                f=open(self.filename,"w")
+                f.writelines(con)
+                f.close()
+                return 0
+        raise IdErr,"%r 的id 不存在" % id
+        
+        
     def __idinfile__(self,id,res):
         """判断id 在res中是否为存在 id,存在返回id所在行号，不存在返回0"""
         lines=len(res)
@@ -110,7 +138,7 @@ class AccessData:
         con=f.readlines()
         f.close()
 
-        id=str(id)+"\t"
+        id="^"+str(id)+"\t"
         start=len(con)-1
         for i in range(start,0,-1): #range(start,end,step)对应序列
             if re.search(id,con[i]):
@@ -136,6 +164,14 @@ class AccessData:
         if len(row)>2:
             PT=row[2]
         return PT
+
+    def ShowT_P(self,id):
+        """return id line T_P """
+        T_P=""
+        row=self.Show(id).split(self.lit)
+        if len(row)>7:
+            T_P=row[7]
+        return T_P
 
 if __name__ == "__main__":
     m1=AccessData("history.list")
