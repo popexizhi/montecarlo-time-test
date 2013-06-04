@@ -133,6 +133,29 @@ class test_AccessData(unittest.TestCase):
         if not re.search(con,last):
             print '%r 中不包含 %r' % (last,con)
 
+    def __testfileidresult__(self,filename,con,id):
+        """check file id 中是否有con """
+        f=open(filename,"r")
+        res=f.readlines()
+        f.close()
+        
+        for i in range(len(res)-1,0,-1):  #range(start,end,step)对应序列
+            
+            cx=res[i]
+            id="^"+str(id)
+            con=str(con)+"\t"+"\d{4}-\d{2}-\d{2} "
+            if re.search(id,cx):
+                print cx
+                if re.search(con,cx):
+                    print "----------hava save:%r" % cx
+                    return 0
+                else:
+                    print "----------no have:%r" % cx
+                    return 1
+            else:
+                pass
+            
+
 
     def testSaveT_P(self):
         """test SaveT_P """
@@ -143,9 +166,26 @@ class test_AccessData(unittest.TestCase):
         a=AcData.AccessData(filename)
         id=a.Save_STT(0.001,10)
         a.SaveT_P(T_P,id)
-        print "------------------save- id=%d-----------" % id
-        print a.Show(id)
+        con=str(T_P)
+        self.__testfileidresult__(filename,con,id)
 
+    def testSaveT_PErrid(self):
+        """test SaveT_P no hava the id """
+        filename="test2.list"
+        T_P=7
+        id=2000
+
+        a=AcData.AccessData(filename)
+        self.assertRaises(AcData.IdErr,a.SaveT_P,T_P,id)
+
+    def testSaveT_PDefT_P(self):
+        """test saveT_P T_P id def """
+        filename="test2.list"
+        T_P=7
+        id=20
+
+        a=AcData.AccessData(filename)
+        self.assertRaises(AcData.T_Pisdef,a.SaveT_P,T_P,id)
         
         
 

@@ -8,6 +8,8 @@ import re
 #Define exceptions
 class AccessErr(Exception): pass
 class FileErr(AccessErr): pass #存储文件格式问题
+class IdErr(AccessErr):pass # 此id在文件中不存在
+class T_Pisdef(AccessErr):pass #此位置T_P值已经存在
 
 
 class AccessData:
@@ -108,15 +110,21 @@ class AccessData:
         con=f.readlines()
         f.close()
 
-        if len(con)>id:
-            row=con[id] #[?] 没与测试这个位置有隐患
-
+        id=str(id)+"\t"
+        start=len(con)-1
+        for i in range(start,0,-1): #range(start,end,step)对应序列
+            if re.search(id,con[i]):
+                row=con[i]
+                break
+            
         return row
+            
 
     def ShowTT(self,id):
         """return id line TT """
         TT=""
-        row=self.Show(id).split(self.lit)
+        con=self.Show(id)
+        row=con.split(self.lit)
         if len(row)>4:
             TT=row[4]
         return TT

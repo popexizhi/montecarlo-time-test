@@ -76,7 +76,17 @@ class testUseDate(unittest.TestCase):
         """test save_PT() input zero"""
         filename="tUD1.list"
         a=UseDate.UseDate(filename)
-        self.assertRaises(UseDate.PTZero,a.SavePT,0)        
+        self.assertRaises(UseDate.PTZero,a.SavePT,0)
+
+    def testSaveTTDoerr(self):
+        """test double id saveTT """
+        filename="TTfi.list"
+        a=UseDate.UseDate(filename)
+        #print "######################testSaveTTDoerr"
+        #a.Save_TT(1001,20)
+        self.assertRaises(UseDate.TTiddoubleErr,a.Save_TT,1001,20)
+        #print "######################testSaveTTDoerr"
+
 
     def testSaveTT(self):
         """test save_TT()"""
@@ -111,11 +121,6 @@ class testUseDate(unittest.TestCase):
 
         return TT
 
-    def testDoerrSaveTT(self):
-        """test double id saveTT """
-        filename="TTfi.list"
-        a=UseDate.UseDate(filename)
-        self.assertRaises(UseDate.TTiddoubleErr,a.Save_TT,1000,20)
 
     def testBiT_P(self):
         """test BiT_P """

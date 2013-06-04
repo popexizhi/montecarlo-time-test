@@ -112,8 +112,9 @@ class UseDate:
         ''' 存储对应的TT到id中 '''
         rid=id
         savefile=AcData.AccessData(self.file)
+        print savefile.ShowTT(id)
         #get TT 判断是为空
-        if ""==savefile.ShowTT(id):        
+        if "" == savefile.ShowTT(id):        
             #save TT
             savefile.Save_TT(TT,rid)
         else:
