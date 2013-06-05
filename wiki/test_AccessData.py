@@ -159,7 +159,6 @@ class test_AccessData(unittest.TestCase):
 
     def testSaveT_P(self):
         """test SaveT_P """
-        print "#############################testSaveT_P"
         filename="test2.list"
         T_P=0.001
         id=1
@@ -170,7 +169,6 @@ class test_AccessData(unittest.TestCase):
         con=str(T_P)
 
         self.__testfileidresult__(filename,con,id)
-        print "#############################testSaveT_P"
         
     def testSaveT_PErrid(self):
         """test SaveT_P no hava the id """
@@ -183,14 +181,17 @@ class test_AccessData(unittest.TestCase):
 
     def testSaveT_PDefT_P(self):
         """test saveT_P T_P id def """
+        print "#############################testSaveT_PDefT_P"
         filename="test2.list"
         T_P=7
-        id=20
 
         a=AcData.AccessData(filename)
+        id=a.Save_STT(0.001,10)
+        a.Save_TT(20,id)
+        a.SaveT_P(T_P,id)
         self.assertRaises(AcData.T_Pisdef,a.SaveT_P,T_P,id)
         
-        
+        print "#############################testSaveT_PDefT_P"        
 
 if __name__=="__main__":
     

@@ -132,6 +132,35 @@ class testUseDate(unittest.TestCase):
             x=a.BiT_P(TT,PT)
             self.assertEqual(x-float(TT/PT),0)
 
+    def testGetT_P(self):
+        """test GetT_P """
+        print "################################################testGetT_P"
+        a=UseDate.UseDate("TT_P.list")
+        T_P=20
+        id=a.SavePT(20)
+        print "id=%d" % id
+        a.Save_TT(id,20)
+        print "################################################testGetT_P"
+
+    def testGetT_Pzero(self):
+        """test GetT_P get PT is zero"""
+        print "################################################testGetT_Pzero"
+        a=UseDate.UseDate("TT_P.list")
+        T_P=20
+        self.assertRaises(UseDate.PTZero,a.GetT_P,1000,T_P)
+        print "################################################testGetT_Pzero"
+        
+    def testGetT_PiddoubleErr(self):
+        """test GetT_P id is double"""
+        print "################################################testGetT_PiddoubleErr"
+        a=UseDate.UseDate("TT_P.list")
+        T_P=20
+        id=a.SavePT(20)
+        a.Save_TT(id,20)
+        self.assertRaises(UseDate.T_PiddoubleErr,a.GetT_P,id,T_P)
+        print "################################################testGetT_PiddoubleErr"        
+        
+
         
 if __name__=="__main__":
     unittest.main()

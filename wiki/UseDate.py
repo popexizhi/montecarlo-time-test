@@ -6,6 +6,7 @@ use PT 推算 TT
 class UseDateError(Exception):pass
 class PTZero(UseDateError):pass
 class TTiddoubleErr(UseDateError):pass
+class T_PiddoubleErr(UseDateError):pass
 
 from Rond import Rond
 import AcData
@@ -119,14 +120,38 @@ class UseDate:
             savefile.Save_TT(TT,rid)
         else:
             raise TTiddoubleErr,'id=%d TT已经存储，请核对您的id ' % rid
+        
+        self.GetT_P(id,TT)#存储T_P
         return rid # 保存成功
 
     def BiT_P(self,TT,PT):
         ''' 计算TT/PT 比例 '''
-        assert PT <> 0 #断言PT一定不为0
+        assert float(PT) <> 0 #断言PT一定不为0
         res=float(TT)/float(PT)
         
         return res
+
+    def GetT_P(self,id,TT):
+        '''获得T/P比例并存储 '''
+        savefile=AcData.AccessData(self.file)
+        PT=savefile.ShowPT(id)
+        sourT_P=savefile.ShowT_P(id)
+        
+        #get PT 判断PT是否为空
+        if "" == PT:
+            raise PTZero,'id=%d PT为0，请核对您的id' % id
+        else:
+            T_P=self.BiT_P(TT,PT)
+        #get T_P没有存储过
+
+        if "" == sourT_P:
+            savefile.SaveT_P(T_P,id) #存储T_P
+        else:
+            raise T_PiddoubleErr,'id=%d T_P已经存储，请核对您的id' % id
+            
+            
+
+    
 
 if __name__ == "__main__":
     m1=UseDate("history.list")

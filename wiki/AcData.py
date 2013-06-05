@@ -89,6 +89,7 @@ class AccessData:
 
         #<unu>
         sourT_P=self.ShowT_P(id)
+        #print "sourT_P:%r" % sourT_P
         if "" == sourT_P:
             pass
         else:
@@ -100,8 +101,8 @@ class AccessData:
         f.close()
 
         T_P=self.lit+str(T_P)+"\n"
-        for i in range(0,len(con)):
-            if re.search(str(id),con[i]):
+        for i in range(len(con)-1,0,-1):
+            if re.search(str("^"+str(id)),con[i]):
                 reobj=re.compile("\n")
                 con[i]=reobj.sub(T_P,con[i])
                 print con[i]
@@ -169,8 +170,8 @@ class AccessData:
         """return id line T_P """
         T_P=""
         row=self.Show(id).split(self.lit)
-        if len(row)>7:
-            T_P=row[7]
+        if len(row)>6:
+            T_P=row[6]
         return T_P
 
 if __name__ == "__main__":
