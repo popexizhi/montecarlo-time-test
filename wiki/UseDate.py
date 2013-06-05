@@ -87,7 +87,7 @@ class UseDate:
         ''' 使用history.list 范围（默认1000 self.readline），计算stt' return '''
         x=self.__GetRom()
         line=int(x*self.readline)
-        #print line
+        print "估算条目:%d,取值内容:%r" % (line,self.listT_P[line-1])
         #print self.listT_P[line-1]
         bi_stt=float(self.listT_P[line-1])
         #print bi_stt
@@ -150,20 +150,40 @@ class UseDate:
             raise T_PiddoubleErr,'id=%d T_P已经存储，请核对您的id' % id
             
             
+    def SetallT_P(self):
+        '''设置self.file 中全部可以计算的T_P并存储 '''
+        #<unu> get id TT
+        #<du> get id PT
+        #<tri> if T_P is null,saveT_P
 
+        #<unu>
+        f=open(self.file,'r')
+        res=f.readlines()
+        f.close()
+
+        for i in range(0,len(res)):
+            con=res[i].split(self.lit)
+            if 6 == len(con): #不存在T_P但PT与TT都已保存
+                PT = con[1]
+                TT = con[4]
+                id = con[0]
+                T_P=self.BiT_P(TT,PT)
+                self.GetT_P(id,T_P)
     
 
 if __name__ == "__main__":
     m1=UseDate("history.list")
     list=""
     while 1:
-        list=raw_input('存储TT请输入1,退出为0，否则为估算蒙式时间:')
+        list=raw_input('存储TT请输入1,退出为0,T_P未存储处理2，否则为估算蒙式时间:')
         if "0" == list:
             break
         if "1" == list:
             TTid=int(raw_input('id为:'))
             TT=float(raw_input('TT为:'))
             m1.Save_TT(TTid,TT)
+        if "2" == list:
+            m1.SetallT_P()
         else:
             PT=float(raw_input('你的估算时间：'))
             print "id=%d" % m1.SavePT(PT)
