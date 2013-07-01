@@ -12,6 +12,12 @@ import sys
 sys.path.append('..') #引入上级目录中的class 参见:http://xiaofeng1982.blog.163.com/blog/static/315724582010931068584/
 import AcData
 
+#Define exceptions
+class DoBaError(Exception):pass
+class PTnumberErr(DoBaError):pass
+class PTidErr(DoBaError):pass
+class PTlessErr(DoBaError):pass
+
 class DoubleBall:
 
     def SetPT(self,PT,id):

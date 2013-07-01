@@ -182,8 +182,10 @@ if __name__ == "__main__":
             TTid=int(raw_input('id为:'))
             TT=float(raw_input('TT为:'))
             m1.Save_TT(TTid,TT)
+            break
         if "2" == list:
             m1.SetallT_P()
+            break
         else:
             PT=float(raw_input('你的估算时间：'))
             print "id=%d" % m1.SavePT(PT)
