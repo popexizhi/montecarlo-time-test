@@ -43,7 +43,9 @@ class DoubleBall:
         """set id 中的 PT """
         #id 是否存在
         line=self.__idinfile__(id)
+        print "%r is %r" % (id,self.res[line])
         #PT 是否已存
+        
         #保存PT
         
         
@@ -68,7 +70,7 @@ class DoubleBall:
         raise PTidErr,"%r 不存在" % id
 
 if __name__=="__main__":
-    dB=DoubleBall("file0.list")
+    dB=DoubleBall("file.list")
     dB.SetPT("301","03016")
     
 
