@@ -1,0 +1,1 @@
+根据Joel on software 中的描述，简单实现此时间估算方法

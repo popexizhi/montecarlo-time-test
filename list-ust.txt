@@ -1,0 +1,177 @@
+M-time [next] doing what ?
+plan 20 min
+随机行数：3
+估算比例为: 1.1111111111
+M-hist预计 18.000000000179998 min完成
+随机预计 25.619335007258872 min 完成
+[真实:21min]
+
+M-time [next] case process 图 in paper
+plan 50 min
+随机行数：14
+估算比例为: 0.47244094489999999
+M-hist预计 105.83333332927639 min完成
+随机预计 64.706689627891549 min 完成
+[真实:30min]
+
+M-time [next] quickbulid publis
+plan 30 min
+随机行数：30
+估算比例为: 1.9047619048
+M-hist预计 15.749999999685 min完成
+随机预计 27.443937130059155 min 完成
+[真实:77min]
+
+M-time [next] class 结构file
+plan 30 min
+随机行数：48
+估算比例为: 2.0
+M-hist预计 15.0 min完成
+随机预计 27.160739685526067 min 完成
+[真实:60 min]
+
+M-time [next] list TDD function 顺序
+plan 30 min
+随机行数：39
+估算比例为: 1.875
+M-hist预计 16.0 min完成
+随机预计 111.23642677159683 min 完成
+[真实:3 min]
+
+M-time [next] TDD 2 
+plan 20 min
+随机行数：62
+估算比例为: 20.0
+M-hist预计 1.0 min完成
+随机预计 22.222487985948149 min 完成
+[真实:4 min]
+
+M-time [next]	TDD 1 -4添加空行处理
+plan 40 min
+随机行数：85
+估算比例为: 0.88888888889999995
+M-hist预计 44.999999999437506 min完成
+随机预计 49.060192017582466 min 完成
+[真实:19 min]
+
+M-time [next] TDD 2 -TDDcode for test
+plan 20 min
+随机行数：99
+估算比例为: 1.0
+M-hist预计 20.0 min完成
+随机预计 20.866788910627132 min 完成
+[真实:34 min]
+
+M-time [next] TDD 2 - code for testcase 1
+plan 20 min
+随机行数：94
+估算比例为: 0.39473684209999998
+M-hist预计 50.666666667342227 min完成
+随机预计 15.07181569248163 min 完成
+[真实:68 min]
+
+M-time [next] TDD2 - code for testcase 2,3
+plan 30 min
+随机行数：30
+估算比例为: 1.9047619048
+M-hist预计 15.749999999685 min完成
+随机预计 19.150497083814798 min 完成
+[真实:37 min]
+
+M-time [next] linux shell - add publish cg.sh
+plan 40 min
+随机行数：90
+估算比例为: 1.1111111111
+M-hist预计 36.000000000359996 min完成
+随机预计 34.43958832498663 min 完成
+[真实:40 min]
+
+M-time [next] TDD4 - code for test
+plan 40 min
+随机行数：45
+估算比例为: 1.25
+M-hist预计 32.0 min完成
+随机预计 40.075715570377156 min 完成
+[真实:34 min]
+
+M-time [next] TDD 4 - code for test 3
+plan 30 min
+随机行数：59
+估算比例为: 1.1764705881999999
+M-hist预计 25.500000000765002 min完成
+随机预计 19.984722260520918 min 完成
+[真实:56 min]
+
+M-time [next] TDD 4 - code for test 2
+plan 60 min
+随机行数：36
+估算比例为: 5.0
+M-hist预计 12.0 min完成
+随机预计 33.225762832698614 min 完成
+[真实:57 min]
+
+M-time [next] eaxmapply-crm数据同步-add data ana
+plan 30 min
+随机行数：93
+估算比例为: 2.7272727272999999
+M-hist预计 10.999999999890001 min完成
+随机预计 36.198950560488846 min 完成
+[真实:26 min]
+
+M-time [next] eaxmapply-crm同步数据-变量数据准备
+plan 40 min
+随机行数：80
+估算比例为: 0.69767441860000001
+M-hist预计 57.333333333715558 min完成
+随机预计 63.750822034687893 min 完成
+[真实: 120 min]
+
+M-time [next] eaxmapply-crm 定制固定数据
+plan 20 min
+随机行数：58
+估算比例为: 1.0526315789
+M-hist预计 19.000000000855 min完成
+随机预计 19.120410822194838 min 完成
+[真实: 16 min]
+
+M-time [next] eaxmapply-crm 定制字段
+plan 10 min
+随机行数：12
+估算比例为: 2.0
+M-hist预计 5.0 min完成
+随机预计 12.005746412160004 min 完成
+[真实: 11 min]
+
+M-time [next] TDD7 test code
+plan 30 min
+随机行数：10
+估算比例为: 2.1428571429000001
+M-hist预计 13.99999999972 min完成
+随机预计 20.733662833080025 min 完成
+[真实: 43 min]
+
+M-time [next] TDD7 testcase 1/2/5
+plan 20 min
+随机行数：18
+估算比例为: 1.1111111111
+M-hist预计 18.000000000179998 min完成
+随机预计 52.110211821452573 min 完成
+[真实: 12 min]
+
+M-time [next] TDD7 3
+plan 10 min
+随机行数：99
+估算比例为: 1.0
+M-hist预计 10.0 min完成
+随机预计 14.522005463050114 min 完成
+[真实: 5 min]
+
+
+M-time [next] list the classes of the case, and list the funtions 隐藏使用的
+plan 60 min
+随机行数：32
+估算比例为: 10.0
+M-hist预计 6.0 min完成
+随机预计 110.38067494819835 min 完成
+[]
+
